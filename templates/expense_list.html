@@ -1,0 +1,19 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Expense List - Your Website{% endblock %}
+
+{% block content %}
+  <h2>Expense List</h2>
+
+  <ul>
+    {% for expense in expenses %}
+      <li>
+        <a href="{% url 'expense_detail' expense.id %}">{{ expense.description }}</a>
+        - ${{ expense.amount }}
+        - <a href="{% url 'expense_update' expense.id %}">Edit</a>
+        - <a href="{% url 'expense_delete' expense.id %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

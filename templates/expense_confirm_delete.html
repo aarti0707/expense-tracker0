@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirm Delete - Your Website{% endblock %}
+
+{% block content %}
+  <h2>Confirm Delete</h2>
+
+  <p>Are you sure you want to delete the expense "{{ expense.description }}"?</p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="{% url 'expense_list' %}">Cancel</a>
+  </form>
+{% endblock %}
